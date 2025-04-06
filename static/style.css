@@ -1,0 +1,114 @@
+/* ========== GLOBAL ========== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* ========== CONTAINER ========== */
+  .chat-container {
+    width: 100%;
+    max-width: 700px;
+    margin-top: 40px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px #000;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #b31515;
+    margin-bottom: 20px;
+  }
+  
+  /* ========== CHAT BOX ========== */
+  #chat-box {
+    height: 400px;
+    overflow-y: auto;
+    background: #1c1c1c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .user-msg, .ai-msg {
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .user-msg {
+    background-color: #005f4a;
+    text-align: right;
+    color: #89ffb7;
+  }
+  
+  .ai-msg {
+    background-color: #3a1e1e;
+    text-align: left;
+    color: #ffa07a;
+  }
+  
+  /* ========== INPUT & BUTTONS ========== */
+  input {
+    width: 65%;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #b31515;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #b31515;
+  }
+  
+  button.run-btn {
+    background-color: #00ff88;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  button.run-btn:hover {
+    background-color: #00cc6a;
+  }
+  
+  /* ========== CODE BLOCKS ========== */
+  pre {
+    white-space: pre-wrap;      /* Retour à la ligne automatique */
+    word-wrap: break-word;
+    overflow-x: auto;
+    background-color: #121212;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+  
+  code {
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    color: #b31515;
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: block;
+  }  

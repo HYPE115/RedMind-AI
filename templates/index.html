@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>💀 RedMind AI – Assistant Pentest & Dev</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <h1>💻 RedMind AI</h1>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Pose ta question..." />
+    <button onclick="sendMessage()">Envoyer</button>
+    <button onclick="clearChat()">🧹 Nettoyer</button>
+  </div>
+
+  <script src="/static/exec.js"></script>
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("user-input");
+      const message = input.value;
+      if (!message.trim()) return;
+
+      const chatBox = document.getElementById("chat-box");
+      chatBox.innerHTML += `<div class='user-msg'>🧑‍💻 ${message}</div>`;
+      input.value = "";
+
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      });
+
+      const data = await res.json();
+      const response = escapeHtml(data.response);
+
+      // Code block auto
+      const codeBlock = `
+        <div class='ai-msg'>
+          🤖 <pre><code>${response}</code></pre>
+          <button class="run-btn" onclick="runCode(this)">▶ Exécuter ce code</button>
+        </div>`;
+      
+      chatBox.innerHTML += codeBlock;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function clearChat() {
+      document.getElementById("chat-box").innerHTML = "";
+    }
+
+    function escapeHtml(text) {
+      return text.replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;");
+    }
+  </script>
+</body>
+</html>

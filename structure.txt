@@ -1,0 +1,14 @@
+ai-assistant/
+│
+├── main.py                    # Serveur Flask principal
+├── chat_engine.py             # Chargement et interaction avec le modèle GGUF
+│
+├── models/
+│   └── ton-modele.gguf        # Exemple : TinyLlama-1.1B-Chat-v1.0.Q4_0.gguf
+│
+├── templates/
+│   └── index.html             # UI principale (chatbox + éditeur de code)
+│
+├── static/
+    ├── style.css              # Style du site (chatbox, bouton, etc.)
+    └── exec.js                # JS (envoi du prompt, exécution du code)
